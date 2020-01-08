@@ -1,0 +1,29 @@
+package testcases;
+
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ReviewPage {
+	public static void main(String[] args) throws InterruptedException {
+		
+	
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\trepakula\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+	 WebDriver driver = new ChromeDriver();
+	driver.get("https://www.tripadvisor.in/");
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//span[text()='Search']")).click();
+	driver.findElement(By.id("mainSearch")).sendKeys("Club Mahindra");
+	driver.findElement(By.id("mainSearch")).sendKeys(Keys.ENTER);
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//span[text()='Club Mahindra Madikeri, Coorg']")).click();
+	Thread.sleep(5000);
+	ArrayList<String> tabs3 = new ArrayList<String> (driver.getWindowHandles());
+	 driver.switchTo().window(tabs3.get(1));  
+	//driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/div[13]/div[2]/div/div[2]/button")).click();
+	driver.findElement(By.xpath("//*[@id=\"component_12\"]/div/div[2]/div/div[2]/div/div[1]/a")).click();
+	}
+}

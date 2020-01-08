@@ -1,0 +1,63 @@
+package objectRepository;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class WriteReviewPage {
+	WebDriver driver;
+	Actions actions;
+	public WriteReviewPage(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	@FindBy(id="ReviewTitle")
+	WebElement TitleReview;
+	public WebElement TitleReview()
+	{
+		return TitleReview;
+	}
+	@FindBy(id="ReviewText")
+	WebElement textReview;
+	public WebElement textReview()
+	{
+		return textReview;
+	}
+	@FindBy(id="bubble_rating")
+	WebElement rating;
+	public void rating()
+	{
+		 new Actions(driver);
+		actions.moveToElement(rating).perform();
+		rating.click();
+	}
+	@FindBy(id="qid12_bubbles")
+	WebElement service_rating;
+	public void service_rating()
+	{
+		 new Actions(driver);
+		actions.moveToElement(service_rating).perform();
+		service_rating.click();
+	}
+	@FindBy(id="qid11_bubbles")
+	WebElement cleanliness;
+	public void cleanliness()
+	{
+		 new Actions(driver);
+		actions.moveToElement(cleanliness).perform();
+		cleanliness.click();
+	}
+	@FindBy(id="qid47_bubbles")
+	WebElement Value_rating;
+	public void Value_rating()
+	{
+		 new Actions(driver);
+		actions.moveToElement(Value_rating).perform();
+		Value_rating.click();
+	}
+	
+
+}

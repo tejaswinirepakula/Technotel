@@ -1,0 +1,22 @@
+package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class WriteReviewPage {
+	WebDriver driver;
+	public WriteReviewPage(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	@FindBy(id="ReviewTitle")
+	WebElement TitleReview;
+	public WebElement TitleReview()
+	{
+		return TitleReview;
+	}
+	
+
+}

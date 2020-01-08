@@ -1,0 +1,53 @@
+package testcases;
+
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class ReviewPage {
+	public static void main(String[] args) throws InterruptedException {
+		
+	
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\trepakula\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+	 WebDriver driver = new ChromeDriver();
+	driver.get("https://www.tripadvisor.in/");
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//span[text()='Search']")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.id("mainSearch")).sendKeys("Club Mahindra");
+	driver.findElement(By.id("mainSearch")).sendKeys(Keys.ENTER);
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//span[text()='Club Mahindra Madikeri, Coorg']")).click();
+	Thread.sleep(5000);
+	ArrayList<String> tabs3 = new ArrayList<String> (driver.getWindowHandles());
+	 driver.switchTo().window(tabs3.get(1));  
+	//driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/div[13]/div[2]/div/div[2]/button")).click();
+	driver.findElement(By.xpath("//*[@id=\"component_12\"]/div/div[2]/div/div[2]/div/div[1]/a")).click();
+	ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+	 driver.switchTo().window(tabs2.get(2));  
+	driver.findElement(By.id("ReviewTitle")).sendKeys("jijsjdxioksjxkj");
+	driver.findElement(By.id("ReviewText")).sendKeys("jijsj123434e45dxioksjxkj");
+	Actions actions = new Actions(driver);
+	WebElement target = driver.findElement(By.id("bubble_rating"));
+	actions.moveToElement(target).perform();
+	target.click();
+	WebElement Rate = driver.findElement(By.id("qid12_bubbles"));
+	actions.moveToElement(Rate).perform();
+	Rate.click();
+	 JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	WebElement ate = driver.findElement(By.id("qid11_bubbles"));
+	actions.moveToElement(ate).perform();
+	ate.click();
+	WebElement mate = driver.findElement(By.id("qid47_bubbles"));
+	actions.moveToElement(mate).perform();
+	mate.click();
+	driver.findElement(By.id("SUBMIT")).click();
+	}
+}

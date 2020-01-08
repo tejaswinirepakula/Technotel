@@ -1,0 +1,22 @@
+package testCases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import objectrepository.AmazonHomePage;
+
+public class ComparisonofPrize {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\trepakula\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		 WebDriver driver = new ChromeDriver();
+		 driver.get("https://www.amazon.in./");
+		 AmazonHomePage ap = new AmazonHomePage(driver);
+		 ap.Searchbox().sendKeys("iPhone XR (64GB) - Yellow");
+		 ap.Search().click();
+		 ap.Product().click();
+		 
+	}
+
+}

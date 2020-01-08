@@ -1,0 +1,39 @@
+package testCases;
+
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import objectrepository.AmazonHomePage;
+import objectrepository.AmazonProductPage;
+import objectrepository.FlipKartHomePage;
+
+public class ComparisonofPrize {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\trepakula\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		 WebDriver driver = new ChromeDriver();
+		/* driver.get("https://www.amazon.in./");
+		 AmazonHomePage ahp = new AmazonHomePage(driver);
+		 ahp.Searchbox().sendKeys("iPhone XR (64GB) - Yellow");
+		 ahp.Search().click();
+		 ahp.Product().click();
+		 ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+		 driver.switchTo().window(tabs2.get(1));  
+		 AmazonProductPage app= new AmazonProductPage(driver);
+		String amazonPrice= app.Price().getText();
+		System.out.println(amazonPrice);*/
+		 driver.navigate().to("https://www.flipkart.com/");
+		 FlipKartHomePage fhp= new FlipKartHomePage(driver);
+		 //driver.switchTo().window(arg0)
+		 driver.findElement(By.xpath("/html/body/div[2]/div/div/button")).click();
+		 fhp.Searchbox().sendKeys("iPhone XR (64GB) - Yellow");
+		 fhp.Searchbox().sendKeys(Keys.ENTER);
+		
+		 //fhp.Product().click();
+	}
+
+}

@@ -1,0 +1,35 @@
+package one;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TableExcercises {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\trepakula\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		 WebDriver driver = new ChromeDriver();
+		 System.out.println("hedhdwoshi");
+		 driver.get("https://www.cricbuzz.com/live-cricket-scorecard/23364/nk-vs-wel-20th-match-super-smash-2019-20");
+		 WebElement table=driver.findElement(By.cssSelector("div[class='cb-col cb-col-100 cb-ltst-wgt-hdr']"));
+	int rowcount=table.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms']")).size();
+	int count=table.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms'] div:nth-child(3)")).size();
+int sum=0;
+	for(int i=0;i<count-2;i++) {
+	String Value=table.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms'] div:nth-child(3)")).get(i).getText();
+	int valueinteger=Integer.parseInt(Value);
+	sum=sum+valueinteger;
+}
+String Extras=driver.findElement(By.xpath("//div[text()='Extras']/following-sibling::div")).getText();
+int extras=Integer.parseInt(Extras);
+int TotalSum=sum+extras;
+String Total=driver.findElement(By.xpath("//div[text()='Total']/following-sibling::div")).getText();
+int total=Integer.parseInt(Total);
+if(TotalSum==total)
+	System.out.println("same");
+else
+	System.out.println("different");
+	}
+
+}

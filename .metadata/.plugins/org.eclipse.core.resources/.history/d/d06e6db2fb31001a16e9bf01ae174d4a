@@ -1,0 +1,30 @@
+package testCases;
+
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import objectrepository.AmazonHomePage;
+import objectrepository.AmazonProductPage;
+
+public class ComparisonofPrize {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\trepakula\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		 WebDriver driver = new ChromeDriver();
+		 driver.get("https://www.amazon.in./");
+		 AmazonHomePage ahp = new AmazonHomePage(driver);
+		 ahp.Searchbox().sendKeys("iPhone XR (64GB) - Yellow");
+		 ahp.Search().click();
+		 ahp.Product().click();
+		 ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+		 driver.switchTo().window(tabs2.get(1));  
+		 AmazonProductPage app= new AmazonProductPage(driver);
+		String amazonPrice= app.Price().getText();
+		System.out.println(amazonPrice);
+		 
+	}
+
+}

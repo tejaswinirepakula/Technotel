@@ -1,0 +1,27 @@
+package objectrepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class FlipKartHomePage {
+
+	WebDriver driver;
+	public FlipKartHomePage(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	@FindBy(name="q")
+	WebElement Searchbox;
+	public WebElement Searchbox()
+	{
+		return Searchbox;
+	}
+	@FindBy(xpath="//*[@id=\"container\"]/div/div[3]/div/div[2]/div[2]/div/div/div/a/div[2]/div[1]/div[1]")
+	WebElement Product;
+	public WebElement Product()
+	{
+		return Product;
+	}
+}
